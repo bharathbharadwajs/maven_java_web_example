@@ -1,9 +1,11 @@
 pipeline{
   agent any
+  
   stages{
     stage("Bulid"){
       steps{
           echo 'building the project'
+    }
     }
      stage("test"){
        steps{
@@ -12,7 +14,7 @@ pipeline{
     }
      stage("deploy"){
        steps{
-          echo 'deploying the project '
+          sh 'mvn tomcat7:run'
        }
     }
   }
